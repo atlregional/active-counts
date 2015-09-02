@@ -658,7 +658,7 @@
     	var params;
     	var paramsString = '';
     	var seasonDates = [];
-    	var url = "http://192.168.1.68:3000/count_sum_weather?";
+    	var url = "http://activecounts.atlantaregional.com:3000/count_sum_weather?";
     	// var visibleStations = [];
     	// if (typeof filters !== 'undefined' || $this.id === 'go-button'){
     		if (typeof filters !== 'undefined'){
@@ -967,7 +967,7 @@
 		var weekdays = [];
 		var weekends = [];
 		var means = [];
-		d3.json("http://192.168.1.68:3000/count_sum_weather?station_id=eq." + id, function(error, json) {
+		d3.json("http://activecounts.atlantaregional.com:3000/count_sum_weather?station_id=eq." + id, function(error, json) {
 			var s = $('<select id="dir-radio" name="selectName" />');
 			// $('#direction-radio').html();
 			// $('#direction-radio option[value="' +  + '"]').prop('selected', true)
@@ -1393,14 +1393,14 @@
 		var params = jQuery.unparam(window.location.hash);
 		console.log(params);
 		var currentLayer;
-		d3.json("http://192.168.1.68:3000/date?count_date=isnot.null&order=count_date.asc", function(error, json) {
+		d3.json("http://activecounts.atlantaregional.com:3000/date?count_date=isnot.null&order=count_date.asc", function(error, json) {
 			var dates = json;
 	    	for (var i = 0; i < dates.length; i++) {
 	    		$('#date').append('<option value="'+moment(dates[i].count_date).valueOf()+'"">' + dates[i].count_date + '</option>');
 	    	};
 		});
 
-		d3.json("http://192.168.1.68:3000/count_location", function(error, json) {
+		d3.json("http://activecounts.atlantaregional.com:3000/count_location", function(error, json) {
 		  if (error) return console.warn(error);
 		  var geoJSON = {
 			  "type": "FeatureCollection",
